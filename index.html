@@ -1,155 +1,18 @@
-<!doctype html>
-<html lang="id">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#08090d">
-  <meta name="description" content="NHONK — proyek token komunitas berbasis Solana yang berfokus pada transparansi, teknologi, komunitas, dan pengembangan bertahap.">
-  <title>NHONK — Build Together, Grow Together</title>
-  <style>
-    :root{--bg:#08090d;--panel:#111319;--gold:#f3c75b;--gold2:#b88325;--text:#f7f4ec;--muted:#aaa9b0;--line:rgba(243,199,91,.22);--green:#87d6a2}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
-    body{margin:0;background:radial-gradient(ellipse at 50% -15%,rgba(188,132,38,.15),transparent 45%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
-    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
-    header{position:sticky;top:0;z-index:10;background:rgba(8,9,13,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
-    .nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:950;letter-spacing:.13em;font-size:1.12rem}
-    .mark{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--gold);font-weight:950;font-size:1.2rem;box-shadow:0 0 24px rgba(243,199,91,.12)}
-    .navlinks{display:flex;align-items:center;gap:21px;color:#d0ced0;font-size:.88rem}.navlinks a:hover{color:var(--gold)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:999px;font-weight:800;font-size:.9rem;border:1px solid var(--gold);transition:transform .2s,box-shadow .2s;cursor:pointer}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(243,199,91,.15)}.btn-gold{background:linear-gradient(135deg,#ffe69a,#d9a638);color:#17120a;border:0}.btn-quiet{background:rgba(255,255,255,.03)}
-    .hero{padding:82px 0 70px;text-align:center;position:relative;overflow:hidden}.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:999px;padding:7px 13px;color:#e8d6a4;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}
-    .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}h1{font-size:clamp(3.2rem,9vw,7rem);line-height:.98;letter-spacing:-.065em;margin:24px 0 18px;font-weight:950}
-    .gold-text{background:linear-gradient(110deg,#fff1b4 8%,#e9b846 46%,#fff0a5 68%,#a87320 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .lead{max-width:700px;margin:0 auto;color:#b9b7c0;font-size:clamp(1rem,2.1vw,1.18rem)}.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:29px}
-    .coin-stage{width:205px;height:205px;margin:43px auto 0;display:grid;place-items:center;position:relative}.coin-halo{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(243,199,91,.17),transparent 68%);filter:blur(5px)}
-    .coin{width:164px;height:164px;border-radius:50%;display:grid;place-items:center;position:relative;background:linear-gradient(145deg,#ffe9a0 0%,#d9a53b 22%,#5e3c0e 44%,#f5ce69 62%,#9d681b 82%,#ffe9a0 100%);box-shadow:0 18px 45px #000,0 0 0 7px #1b1710,0 0 0 9px #d8a53a,0 0 42px rgba(243,199,91,.2)}
-    .coin-face{width:139px;height:139px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,#25252b,#090a0e 68%);border:1px solid rgba(255,223,132,.8);box-shadow:inset 0 0 22px #000}
-    .coin-n{font-size:6rem;line-height:1;font-weight:950;letter-spacing:-.12em;padding-right:9px;color:#f4ca61;text-shadow:0 3px 0 #6f4a11,0 0 22px rgba(243,199,91,.2)}
-    .orbit{position:absolute;inset:12px;border:1px solid rgba(243,199,91,.28);border-radius:50%;transform:rotate(-24deg) scaleX(1.28)}
-    .section{padding:72px 0}.section-head{text-align:center;max-width:740px;margin:0 auto 34px}.kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.17em;font-size:.74rem;font-weight:850}
-    h2{font-size:clamp(2rem,5vw,3.15rem);line-height:1.12;letter-spacing:-.04em;margin:10px 0 14px}.section-head p,.muted{color:var(--muted)}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:24px}
-    .icon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;color:var(--gold);background:rgba(243,199,91,.09);border:1px solid var(--line);font-size:1.25rem}
-    .card h3{margin:15px 0 7px;font-size:1.1rem}.card p{margin:0;color:var(--muted);font-size:.93rem}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}.stat{padding:18px 15px;text-align:center;border:1px solid var(--line);background:rgba(243,199,91,.045);border-radius:16px}.stat strong{display:block;font-size:clamp(1.1rem,2.5vw,1.55rem);color:var(--gold)}.stat span{font-size:.8rem;color:var(--muted)}
-    .token-box{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}.panel{padding:28px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(243,199,91,.08),rgba(255,255,255,.02))}
-    .token-row{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.94rem}.token-row:last-child{border-bottom:0}.token-row span:first-child{color:var(--muted)}.token-row strong{text-align:right;overflow-wrap:anywhere}
-    .barrow{margin:18px 0}.barlabel{display:flex;justify-content:space-between;gap:10px;font-size:.9rem;margin-bottom:7px}.bar{height:8px;border-radius:99px;background:#292a30;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#a87522,#ffe08a);border-radius:99px}
-    .notice{font-size:.82rem;color:#b9b7c0;border-left:2px solid var(--gold);padding-left:13px;margin-top:18px}
-    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}.flow-step{padding:15px 10px;border:1px solid rgba(255,255,255,.1);border-radius:14px;text-align:center;color:#d6d3cc;background:rgba(255,255,255,.025);font-size:.88rem}.flow-step b{display:block;color:var(--gold);font-size:.78rem;margin-bottom:5px}
-    .roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.phase{position:relative;padding-top:27px}.phase:before{content:"";position:absolute;top:0;left:0;width:34px;height:3px;background:var(--gold);border-radius:5px}.phase small{color:var(--gold);font-weight:800;letter-spacing:.1em;text-transform:uppercase}
-    .risk{border:1px solid rgba(255,178,95,.35);background:rgba(255,178,95,.055);border-radius:18px;padding:22px;color:#d5c9b6;font-size:.9rem}.risk strong{color:#f4c979}
-    .community{border:1px solid var(--line);border-radius:26px;padding:clamp(28px,6vw,55px);text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(243,199,91,.12),transparent 70%),#101116}.community p{max-width:650px;margin:0 auto;color:var(--muted)}.community-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
-    footer{border-top:1px solid rgba(255,255,255,.08);padding:28px 0;color:#8f8d97;font-size:.84rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.disclaimer{max-width:900px;margin-top:12px;font-size:.77rem;color:#777680}
-    @media(max-width:800px){.navlinks{gap:12px}.navlinks a:not(.btn){display:none}.grid,.roadmap{grid-template-columns:1fr}.token-box{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:repeat(2,1fr)}.hero{padding-top:62px}.nav{min-height:66px}}
-  </style>
-</head>
-<body>
-<header><div class="wrap nav">
-  <a class="brand" href="#home" aria-label="NHONK Beranda"><span class="mark">N</span><span>NHONK</span></a>
-  <nav class="navlinks" aria-label="Navigasi"><a href="#tentang">Tentang</a><a href="#token">Tokenomics</a><a href="#distribusi">Distribusi</a><a href="#roadmap">Roadmap</a><a class="btn btn-quiet" href="#komunitas">Komunitas ↗</a></nav>
-</div></header>
-<main>
-<section class="hero" id="home"><div class="wrap">
-  <div class="eyebrow"><span class="dot"></span> Community · Technology · Transparency</div>
-  <h1><span class="gold-text">NHONK</span><br>BUILD TOGETHER.</h1>
-  <p class="lead">Build Together, Grow Together. NHONK adalah konsep proyek token berbasis komunitas di jaringan Solana, dengan fokus pada transparansi, teknologi, tanggung jawab, dan pengembangan ekosistem secara bertahap.</p>
-  <div class="hero-actions"><a class="btn btn-gold" href="#tentang">Kenali NHONK ↓</a><a class="btn btn-quiet" href="#komunitas">Ikuti Perjalanan ↗</a></div>
-  <div class="coin-stage" aria-label="Emblem koin NHONK"><div class="coin-halo"></div><div class="orbit"></div><div class="coin"><div class="coin-face"><span class="coin-n">N</span></div></div></div>
-  <div class="stats"><div class="stat"><strong>Solana</strong><span>Blockchain</span></div><div class="stat"><strong>100.000.000</strong><span>Total supply rencana</span></div><div class="stat"><strong>50%</strong><span>Community Pool rencana</span></div><div class="stat"><strong>V1.0</strong><span>Whitepaper draft</span></div></div>
-</div></section>
 
-<section class="section" id="tentang"><div class="wrap">
-  <div class="section-head"><div class="kicker">Tentang NHONK</div><h2>Satu komunitas.<br><span class="gold-text">Satu perjalanan bersama.</span></h2><p>NHONK dirancang dengan pendekatan community-first. Tujuannya adalah membangun komunitas global yang dapat berpartisipasi dalam pengembangan ekosistem melalui program komunitas, teknologi, distribusi token yang terencana, dan utilitas digital yang mungkin dikembangkan secara bertahap.</p></div>
-  <div class="grid">
-    <article class="card"><div class="icon">◈</div><h3>Transparansi</h3><p>Informasi tokenomics, rencana distribusi, penggunaan dana, serta perkembangan proyek akan dipublikasikan sejauh memungkinkan.</p></article>
-    <article class="card"><div class="icon">◎</div><h3>Komunitas</h3><p>Komunitas menjadi bagian penting dalam perjalanan NHONK melalui partisipasi, edukasi, diskusi, dan program yang diumumkan secara terbuka.</p></article>
-    <article class="card"><div class="icon">✦</div><h3>Teknologi & Tanggung Jawab</h3><p>Pengembangan direncanakan bertahap dengan memperhatikan keamanan, risiko, dan ketentuan hukum yang relevan.</p></article>
-  </div>
-</div></section>
-
-<section class="section" id="token"><div class="wrap">
-  <div class="section-head"><div class="kicker">Informasi token</div><h2>NHONK di jaringan Solana</h2><p>Detail di bawah mengikuti draft Whitepaper NHONK V1.0. Rencana ini belum berarti token sudah dibuat atau diluncurkan.</p></div>
-  <div class="token-box">
-    <div class="panel">
-      <div class="token-row"><span>Nama token</span><strong>NHONK</strong></div>
-      <div class="token-row"><span>Simbol</span><strong>NHONK</strong></div>
-      <div class="token-row"><span>Blockchain</span><strong>Solana</strong></div>
-      <div class="token-row"><span>Standar rencana</span><strong>SPL Token</strong></div>
-      <div class="token-row"><span>Total supply rencana</span><strong>100.000.000 NHONK</strong></div>
-      <div class="token-row"><span>Decimals rencana</span><strong>9</strong></div>
-      <div class="token-row"><span>Mint address</span><strong>Belum diumumkan</strong></div>
-      <div class="token-row"><span>Status</span><strong>Tahap pengembangan</strong></div>
-      <p class="notice">Alamat mint resmi, konfigurasi token, mekanisme lock, dan detail peluncuran akan diumumkan setelah dikonfirmasi. Waspadai alamat atau tautan tidak resmi.</p>
-    </div>
-    <div class="panel" id="distribusi">
-      <div class="kicker">Rencana alokasi</div><h3 style="font-size:1.4rem;margin:8px 0">Token allocation</h3>
-      <div class="barrow"><div class="barlabel"><span>Community Pool</span><strong>50% · 50.000.000</strong></div><div class="bar"><div class="fill" style="width:50%"></div></div></div>
-      <div class="barrow"><div class="barlabel"><span>Liquidity</span><strong>20% · 20.000.000</strong></div><div class="bar"><div class="fill" style="width:20%"></div></div></div>
-      <div class="barrow"><div class="barlabel"><span>Development</span><strong>10% · 10.000.000</strong></div><div class="bar"><div class="fill" style="width:10%"></div></div></div>
-      <div class="barrow"><div class="barlabel"><span>Marketing</span><strong>8% · 8.000.000</strong></div><div class="bar"><div class="fill" style="width:8%"></div></div></div>
-      <div class="barrow"><div class="barlabel"><span>Treasury</span><strong>7% · 7.000.000</strong></div><div class="bar"><div class="fill" style="width:7%"></div></div></div>
-      <div class="barrow"><div class="barlabel"><span>Reserve</span><strong>5% · 5.000.000</strong></div><div class="bar"><div class="fill" style="width:5%"></div></div></div>
-    </div>
-  </div>
-</div></section>
-
-<section class="section"><div class="wrap">
-  <div class="section-head"><div class="kicker">Program komunitas</div><h2>Community Pool</h2><p>Whitepaper merencanakan 50.000.000 NHONK untuk peserta yang memenuhi persyaratan program. Distribusi aktual bergantung pada aturan final dan jumlah peserta yang lolos verifikasi.</p></div>
-  <div class="token-box">
-    <div class="panel"><div class="kicker">Contoh ilustrasi</div><h3 style="font-size:1.45rem">500 NHONK per peserta</h3><p class="muted">Jika 100.000 peserta memenuhi persyaratan dan seluruh Community Pool 50.000.000 NHONK dialokasikan merata, perhitungannya adalah:</p><div style="font-size:1.3rem;font-weight:900;color:var(--gold);margin:18px 0">50.000.000 ÷ 100.000 = 500</div><p class="muted">Ini hanya contoh matematis, bukan jaminan alokasi. Jumlah aktual bergantung pada ketentuan final program.</p></div>
-    <div class="panel"><div class="kicker">Alur rencana</div><div class="flow"><div class="flow-step"><b>01</b>Pendaftaran</div><div class="flow-step"><b>02</b>Verifikasi</div><div class="flow-step"><b>03</b>Snapshot</div><div class="flow-step"><b>04</b>Perhitungan</div><div class="flow-step"><b>05</b>Distribusi</div><div class="flow-step"><b>06</b>Lock rencana</div></div><p class="notice">Whitepaper merencanakan lock token komunitas selama 6 bulan. Mekanisme teknis dan ketentuan final belum diumumkan.</p></div>
-  </div>
-</div></section>
-
-<section class="section"><div class="wrap">
-  <div class="section-head"><div class="kicker">Kontribusi program</div><h2>Rencana penggunaan US$5</h2><p>Whitepaper draft menyebut kontribusi partisipasi program sebesar US$5 per peserta. Rencana ini belum berarti program pendaftaran telah dibuka.</p></div>
-  <div class="grid">
-    <article class="card"><div class="icon">$2</div><h3>Liquidity Fund</h3><p>US$2 per peserta direncanakan untuk dana liquidity. Liquidity bukan jaminan harga, kestabilan nilai, atau kemudahan menjual token.</p></article>
-    <article class="card"><div class="icon">$3</div><h3>Development & Compliance</h3><p>US$3 per peserta direncanakan untuk website, aplikasi, infrastruktur, keamanan, audit teknis, legal, compliance, administrasi, dan operasional.</p></article>
-    <article class="card"><div class="icon">!</div><h3>Ketentuan belum final</h3><p>Sebelum program dibuka, struktur program, kelayakan peserta, metode pembayaran, penggunaan dana, dan persyaratan hukum perlu dikonfirmasi.</p></article>
-  </div>
-  <p class="notice">Tidak ada tombol pembayaran atau pendaftaran berbayar aktif di website ini. Jangan mengirim dana sampai program resmi, pihak penerima, ketentuan, dan aspek legal telah diverifikasi.</p>
-</div></section>
-
-<section class="section" id="roadmap"><div class="wrap">
-  <div class="section-head"><div class="kicker">Rencana pengembangan</div><h2>Roadmap NHONK</h2><p>Tahapan berikut merupakan rencana dari draft whitepaper, bukan klaim bahwa tahapan sudah selesai.</p></div>
-  <div class="roadmap">
-    <article class="card phase"><small>Phase 01 · Foundation</small><h3>Fondasi</h3><p>Konsep, tokenomics, whitepaper, identitas, website, dan komunitas awal.</p></article>
-    <article class="card phase"><small>Phase 02 · Technical</small><h3>Pengembangan teknis</h3><p>Pembuatan token, pengujian Solana Devnet, pengujian distribusi, dashboard, sistem komunitas, dan security review.</p></article>
-    <article class="card phase"><small>Phase 03 · Community</small><h3>Komunitas</h3><p>Edukasi, pembukaan komunitas, program pendaftaran jika disetujui, dan verifikasi peserta.</p></article>
-    <article class="card phase"><small>Phase 04 · Distribution</small><h3>Distribusi token</h3><p>Finalisasi peserta, distribusi Community Pool, penerapan mekanisme lock, dan publikasi data distribusi.</p></article>
-    <article class="card phase"><small>Phase 05 · Ecosystem</small><h3>Pengembangan ekosistem</h3><p>Utilitas, website/aplikasi, program komunitas, partnership, dan infrastruktur.</p></article>
-    <article class="card phase"><small>Phase 06 · Market access</small><h3>Akses pasar</h3><p>Pengajuan perdagangan ke platform yang sesuai jika memenuhi persyaratan dan disetujui platform terkait. Listing tidak dijamin.</p></article>
-  </div>
-</div></section>
-
-<section class="section"><div class="wrap">
-  <div class="section-head"><div class="kicker">Potensi pengembangan</div><h2>Utilitas & governance</h2><p>Utilitas berikut masih berupa kemungkinan yang dapat dikembangkan dan diumumkan jika benar-benar diterapkan.</p></div>
-  <div class="grid">
-    <article class="card"><div class="icon">◇</div><h3>Community Membership</h3><p>Keanggotaan komunitas dan akses program yang memiliki aturan jelas.</p></article>
-    <article class="card"><div class="icon">✧</div><h3>Program & Event</h3><p>Program aktivitas, akses event, edukasi, dan partnership yang diumumkan kemudian.</p></article>
-    <article class="card"><div class="icon">⌘</div><h3>Voting Komunitas</h3><p>Governance dapat dipertimbangkan untuk proposal ekosistem. Ini tidak otomatis memberi kepemilikan perusahaan atau aset proyek.</p></article>
-  </div>
-</div></section>
-
-<section class="section"><div class="wrap">
-  <div class="risk"><strong>Risiko dan disclaimer penting</strong><br>
-    NHONK bukan janji investasi. Tidak ada jaminan keuntungan, return, kenaikan harga, harga minimum, pengembalian kontribusi, listing exchange, atau likuiditas tertentu. Aset digital berisiko tinggi; peserta dapat kehilangan sebagian atau seluruh nilai ekonomi token. Teknologi blockchain juga memiliki risiko bug, kesalahan konfigurasi, serangan keamanan, kehilangan private key, gangguan jaringan, serta perubahan regulasi. Informasi di website ini bersifat umum dan mengikuti draft whitepaper; bukan nasihat keuangan atau hukum. Kelayakan program, batasan wilayah, dan kepatuhan hukum harus ditinjau sebelum aktivitas publik dilakukan.
-  </div>
-</div></section>
-
-<section class="section" id="komunitas"><div class="wrap"><div class="community">
-  <div class="kicker">Community · Technology · Transparency · Responsibility</div><h2>Build together.<br><span class="gold-text">Grow the ecosystem.</span></h2>
-  <p>Ikuti perkembangan NHONK dan nantikan pengumuman kanal komunitas resmi. Tautan Telegram dan X akan ditambahkan setelah akun resminya siap dan diverifikasi.</p>
-  <div class="community-actions"><a class="btn btn-gold" href="#token">Baca informasi token ↑</a><a class="btn btn-quiet" href="#roadmap">Lihat roadmap</a></div>
-</div></div></section>
-</main>
-<footer><div class="wrap">
-  <div class="footer-inner"><a class="brand" href="#home"><span class="mark">N</span><span>NHONK</span></a><span>Whitepaper V1.0 · Draft / Development Stage</span><span>Network: Solana · SPL Token (rencana)</span></div>
-  <p class="disclaimer">Dokumen website ini disusun berdasarkan draft Whitepaper NHONK V1.0 yang diberikan. Rencana tokenomics, alokasi, program kontribusi, lock, roadmap, dan utilitas belum tentu telah diterapkan. Informasi harus diperbarui jika ada perubahan material. Periksa kanal resmi dan detail on-chain sebelum melakukan tindakan apa pun.</p>
-  <p class="disclaimer">© <span id="year"></span> NHONK Community. Build Together, Grow Together.</p>
-</div></footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<!-- NHONK Contact Section -->
+<section id="contact" style="padding: 40px 20px; text-align: center;">
+  <h2>Contact NHONK</h2>
+  <p>
+    For community inquiries, partnerships,
+    and project information, please contact us.
+  </p>
+  <p>
+    <a href="mailto:nhonktoken@gmail.com"
+       style="color: #d4af37; font-weight: bold;
+       text-decoration: none;">
+      ✉ nhonktoken@gmail.com
+    </a>
+  </p>
+</section>
 </body>
 </html>
